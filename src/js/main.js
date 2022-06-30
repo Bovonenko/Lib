@@ -11,9 +11,11 @@ $('div').click(function() {
     console.log($(this).index());
 });
 
-console.log($('.more'));
+// console.log($('.more'));
 
-console.log($('.more').sibling());
+$('.findme').fadeOut(1800);
+
+// console.log($('.more').sibling());
 
 // console.log($('div').eq(2).find('.some'));
 
