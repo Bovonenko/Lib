@@ -25,6 +25,8 @@ $.prototype.animateOverTime = function(dur, cb, fin) {
     return _animateOverTime;
 };
 
+
+
 $.prototype.fadeIn = function(dur, display, fin) {
     for (let i = 0; i < this.length; i++) {
         this[i].style.display = display || 'block';
@@ -42,7 +44,6 @@ $.prototype.fadeIn = function(dur, display, fin) {
 
 $.prototype.fadeOut = function(dur, fin) {
     for (let i = 0; i < this.length; i++) {
-        
 
         const _fadeOut = (complection) => {
             this[i].style.opacity = 1 - complection;
@@ -53,6 +54,19 @@ $.prototype.fadeOut = function(dur, fin) {
 
         const ani = this.animateOverTime(dur, _fadeOut, fin);
         requestAnimationFrame(ani);
+    }
+
+    return this;
+};
+
+$.prototype.fadeToggle = function(dur, display, fin) {
+    for (let i = 0; i < this.length; i++) {
+
+        if (window.getComputedStyle(this[i]).display === 'none') {
+            $(this[i]).fadeIn(dur, display, fin);
+        } else {
+            $(this[i]).fadeOut(dur, fin);
+        }
     }
 
     return this;
